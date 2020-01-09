@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 describe('User attempts to view his/her performance data', () => {
   before(function() {
     cy.server();

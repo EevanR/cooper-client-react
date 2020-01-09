@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import DisplayCooperResult from "./components/DisplayCooperResult";
 import InputFields from './components/InputFields';
 import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
 import { authenticate } from './modules/auth';
+import { saveUser } from './modules/userRegister';
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
 
 class App extends Component {
@@ -31,6 +33,19 @@ class App extends Component {
       this.setState({ authenticated: true });
     } else {
       this.setState({ message: response.message, renderLoginForm: false });
+    }
+  };
+
+  onRegister = async e => {
+    e.preventDefault();
+    const response = await saveUser(
+      e.target.email.value,
+      e.target.password.value
+    );
+    if (response) {
+      
+    } else {
+      
     }
   };
 
@@ -75,9 +90,10 @@ class App extends Component {
           )
         };
     }
-  
+
     return (
       <>
+        <RegisterForm submitFormHandler={this.onRegister}/>
         <InputFields onChangeHandler={this.onChangeHandler} />
         {renderLogin}
         <DisplayCooperResult
