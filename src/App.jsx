@@ -6,6 +6,7 @@ import RegisterForm from "./components/RegisterForm";
 import { authenticate } from './modules/auth';
 import { saveUser } from './modules/userRegister';
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
+import { logout } from "./modules/logout";
 
 class App extends Component {
   state = {
@@ -35,6 +36,17 @@ class App extends Component {
       this.setState({ message: response.message, renderLoginForm: false });
     }
   };
+
+  onLogout = async () => {
+    const response = await logout() 
+    if (!response.authenticated) {
+      this.setState({authenticated: false});
+      sessionStorage.removeItem("credentials")
+    } else {
+      this.setState({message: response.message})
+    }
+  };
+
 
   onRegister = async e => {
     e.preventDefault();
@@ -72,7 +84,10 @@ class App extends Component {
         break;
       case authenticated:
         renderLogin = (
-          <p>Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}</p>
+          <>
+            <p>Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}</p>
+            <button onClick={() => this.onLogout()}>Log out</button>
+          </>
         );
         if (this.state.renderIndex) {
           performanceDataIndex = (
