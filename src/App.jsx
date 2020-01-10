@@ -14,6 +14,7 @@ class App extends Component {
     gender: "female",
     age: "",
     renderLoginForm: false,
+    renderRegisterForm: false,
     authenticated: false,
     message: "",
     entrySaved: false,
@@ -40,7 +41,9 @@ class App extends Component {
   onLogout = async () => {
     const response = await logout() 
     if (!response.authenticated) {
+      this.setState({renderRegisterForm: false});
       this.setState({authenticated: false});
+      this.setState({renderLoginForm: false});
       sessionStorage.removeItem("credentials")
     } else {
       this.setState({message: response.message})
@@ -54,17 +57,36 @@ class App extends Component {
       e.target.email.value,
       e.target.password.value
     );
-    if (response) {
-      
+    if (response.authenticated) {
+      this.setState({ authenticated: true });
     } else {
-      
+      this.setState({ message: response.message, renderLoginForm: false });
     }
   };
 
   render() {
-    const { renderLoginForm, authenticated, message } = this.state;
+    const { renderRegisterForm, renderLoginForm, authenticated, message } = this.state;
+    let renderRegister;
     let renderLogin;
     let performanceDataIndex;
+    switch(true) {
+      case renderRegisterForm && !authenticated:
+        renderRegister = <RegisterForm submitFormHandler={this.onRegister}/>;
+        break;
+      case !renderRegisterForm && !authenticated:
+        renderRegister = (
+          <>
+            <button
+              id="register"
+              onClick={() => this.setState({ renderRegisterForm: true })}
+            >
+              Register
+            </button>
+            <p>{message}</p>
+          </>
+        );
+    }
+
     switch(true) {
       case renderLoginForm && !authenticated:
         renderLogin = <LoginForm submitFormHandler={this.onLogin} />;
@@ -108,9 +130,9 @@ class App extends Component {
 
     return (
       <>
-        <RegisterForm submitFormHandler={this.onRegister}/>
         <InputFields onChangeHandler={this.onChangeHandler} />
         {renderLogin}
+        {renderRegister}
         <DisplayCooperResult
           distance={this.state.distance}
           gender={this.state.gender}
