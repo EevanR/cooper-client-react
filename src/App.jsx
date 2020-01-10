@@ -44,6 +44,7 @@ class App extends Component {
       this.setState({renderRegisterForm: false});
       this.setState({authenticated: false});
       this.setState({renderLoginForm: false});
+      this.setState({ distance: "", age: "" });
       sessionStorage.removeItem("credentials")
     } else {
       this.setState({message: response.message})
@@ -127,7 +128,7 @@ class App extends Component {
           )
         };
     }
-
+    
     return (
       <>
         <InputFields onChangeHandler={this.onChangeHandler} />
@@ -139,7 +140,7 @@ class App extends Component {
           age={this.state.age}
           authenticated={this.state.authenticated}
           entrySaved={this.state.entrySaved}
-          entryHandler={() => this.setState({ entrySaved: true, updateIndex: true })}
+          entryHandler={() => this.setState({ entrySaved: true, updateIndex: true})}
         />
         {performanceDataIndex}
       </>

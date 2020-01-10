@@ -17,6 +17,7 @@ const saveData = async (result, entryHandler) => {
       }
     );
     entryHandler();
+    alert("Entry saved!");
   } catch (err) {
     console.error(err);
     alert("Something went wrong");

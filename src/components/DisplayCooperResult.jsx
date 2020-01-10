@@ -30,7 +30,12 @@ const DisplayCooperResult = ({
               Save entry
             </button>
           ) : (
-            <p id="response-message">Your entry was saved</p>
+            false
+          )}
+          {!authenticated && !entrySaved ? (
+            <p>Login to save your entry!</p>
+          ) : (
+            false
           )}
         </>
       )}

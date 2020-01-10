@@ -4,7 +4,7 @@ const InputFields = ({ onChangeHandler }) => {
   return (
     <>
       <label>Distance</label>
-      <input onChange={onChangeHandler} name="distance" id="distance"></input>
+      <input onChange={onChangeHandler} name="distance" id="distance" placeholder="Meters"></input>
 
       <select onChange={onChangeHandler} name="gender" id="gender">
         <option value="female">Female</option>
@@ -12,7 +12,7 @@ const InputFields = ({ onChangeHandler }) => {
       </select>
 
       <label>Age</label>
-      <input onChange={onChangeHandler} name="age" id="age"></input>
+      <input onChange={onChangeHandler} name="age" id="age" ></input>
     </>
   );
 };
