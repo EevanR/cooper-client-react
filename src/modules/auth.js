@@ -24,4 +24,4 @@ const storeAuthCredentials = ({ headers }) => {
   sessionStorage.setItem("credentials", JSON.stringify(credentials));
 };
 
-export { authenticate }
+export { authenticate, storeAuthCredentials }
