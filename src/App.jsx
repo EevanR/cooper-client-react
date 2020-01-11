@@ -7,6 +7,7 @@ import { authenticate } from './modules/auth';
 import { saveUser } from './modules/userRegister';
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
 import { logout } from "./modules/logout";
+import Chart from "./components/Chart";
 
 class App extends Component {
   state = {
@@ -143,6 +144,7 @@ class App extends Component {
           entryHandler={() => this.setState({ entrySaved: true, updateIndex: true})}
         />
         {performanceDataIndex}
+        <Chart />
       </>
     );
   }

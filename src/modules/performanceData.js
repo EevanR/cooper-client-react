@@ -36,7 +36,6 @@ const getData = async () => {
   const response = await axios.get("/performance_data", {
     headers: headers
   });
-
   return response;
 };
 
