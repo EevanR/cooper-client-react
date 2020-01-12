@@ -19,7 +19,7 @@ class App extends Component {
     authenticated: false,
     message: "",
     entrySaved: false,
-    renderIndex: false
+    renderIndex: false,
   };
 
   onChangeHandler = e => {
@@ -34,6 +34,7 @@ class App extends Component {
     );
     if (response.authenticated) {
       this.setState({ authenticated: true });
+      this.setState({ renderChart: <Chart/>})
     } else {
       this.setState({ message: response.message, renderLoginForm: false });
     }
@@ -51,7 +52,6 @@ class App extends Component {
       this.setState({message: response.message})
     }
   };
-
 
   onRegister = async e => {
     e.preventDefault();
