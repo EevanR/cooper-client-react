@@ -47,50 +47,49 @@ class Chart extends Component {
 
   render() {
     const { excellent, aboveAv, av, belowAv, poor } = this.state
+    const data = 
+      {labels: [
+        `Excellent ${excellent}`,
+        `Above average ${aboveAv}`,
+        `Average ${av}`,
+        `Below average ${belowAv}`,
+        `Poor ${poor}`
+      ],
+      datasets: [{
+          label: "Your Entries!",
+          data: [
+            excellent,
+            aboveAv,
+            av,
+            belowAv,
+            poor
+          ],
+          backgroundColor: [
+            'red',
+            'green',
+            'blue',
+            'orange',
+            'yellow'
+          ]
+        }
+      ],
+      options: {
+        title:{
+          display: true,
+          text: 'Your results by class',
+          fontSize: 20
+        },
+        legend:{
+          display: true,
+          position: 'right'
+        }}
+      }
+    
     return (
       <div>
-        <div className="chart">
-          <Doughnut
-            data={{
-              labels: [
-                `Excellent ${excellent}`,
-                `Above average ${aboveAv}`,
-                `Average ${av}`,
-                `Below average ${belowAv}`,
-                `Poor ${poor}`
-              ],
-              datasets: [
-                {
-                  label: "Your Entries!",
-                  data: [
-                    excellent,
-                    aboveAv,
-                    av,
-                    belowAv,
-                    poor
-                  ],
-                  backgroundColor: [
-                    'red',
-                    'green',
-                    'blue',
-                    'orange',
-                    'yellow'
-                  ]
-                }
-              ]
-            }}
-            options={{ 
-              title:{
-                display: true,
-                text: 'Your results by class',
-                fontSize: 20
-              },
-              legend:{
-                display: true,
-                position: 'right'
-              }
-            }}
-          />
+          <div className="chartBLock">
+            <div className="chart1"><Doughnut data = {data}/></div>
+            <div className="chart2"><Line data = {data}/></div>
         </div>
       </div>
     )

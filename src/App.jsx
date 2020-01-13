@@ -8,6 +8,7 @@ import { saveUser } from './modules/userRegister';
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
 import { logout } from "./modules/logout";
 import Chart from "./components/Chart";
+import './App.css';
 
 class App extends Component {
   state = {
