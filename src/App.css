@@ -6,9 +6,38 @@
 .chart1 {
   width: 50%;
   float: left;
+  text-align: center;
+  color: white;
 }
 
 .chart2 {
   width: 50%;
   float: right;
+  text-align: center;
+  color: white;
+}
+
+.entry {
+  border: 1px solid rgb(114, 166, 226);
+  margin-bottom: 10px;
+  height: 60px;
+  padding: 5px;
+}
+
+#deleteButton {
+  float: right;
+}
+
+.inputFields {
+  height: 200px;
+  width: 45%;
+}
+
+.fields {
+  padding-top: 20px;
+}
+
+.ui.form .field>label {
+  color: white;
+  margin-bottom: 5px;
 }

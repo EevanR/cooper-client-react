@@ -69,27 +69,76 @@ class Chart extends Component {
             'green',
             'blue',
             'orange',
-            'yellow'
+            'yellow',
           ]
         }
-      ],
-      options: {
-        title:{
-          display: true,
-          text: 'Your results by class',
-          fontSize: 20
-        },
-        legend:{
-          display: true,
-          position: 'right'
-        }}
+      ]}
+
+    const options = {
+      legend: {
+        labels: {
+          fontColor: "white"
+        }
       }
+    }
+
+    const lineData = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label: 'My First dataset',
+          fill: true,
+          lineTension: 0.1,
+          backgroundColor: 'rgba(75,192,192,0.4)',
+          borderColor: 'rgba(75,192,192,1)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointRadius: 4,
+          data: [65, 59, 80, 81, 56, 55, 40]
+        }
+      ]
+    };
+
+    const lineOptions = {
+      legend: {
+        labels: {
+          fontColor: "white"
+        }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            fontColor: "white"
+          }
+        }],
+        xAxes: [{
+          ticks: {
+              fontColor: "white",
+              fontSize: 14,
+          }
+        }]
+      }
+    }
     
     return (
-      <div>
+      <div className="ui divider">
           <div className="chartBLock">
-            <div className="chart1"><Doughnut data = {data}/></div>
-            <div className="chart2"><Line data = {data}/></div>
+            <div className="chart1">
+              <h3>Graph 1</h3>
+              <Doughnut  
+                data = {data} 
+                options = {options}
+              />
+            </div>
+            <div className="chart2">
+              <h3>Graph 2</h3>
+              <Line 
+                data = {lineData}
+                options = {lineOptions}
+              />
+            </div>
         </div>
       </div>
     )

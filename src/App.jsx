@@ -133,19 +133,22 @@ class App extends Component {
     
     return (
       <>
-        <InputFields onChangeHandler={this.onChangeHandler} />
-        {renderLogin}
-        {renderRegister}
-        <DisplayCooperResult
-          distance={this.state.distance}
-          gender={this.state.gender}
-          age={this.state.age}
-          authenticated={this.state.authenticated}
-          entrySaved={this.state.entrySaved}
-          entryHandler={() => this.setState({ entrySaved: true, updateIndex: true})}
-        />
-        {performanceDataIndex}
-        <Chart />
+        <div className="main-container">
+          <h1>Run App</h1>
+          <InputFields onChangeHandler={this.onChangeHandler} />
+          {renderLogin}
+          {renderRegister}
+          <DisplayCooperResult
+            distance={this.state.distance}
+            gender={this.state.gender}
+            age={this.state.age}
+            authenticated={this.state.authenticated}
+            entrySaved={this.state.entrySaved}
+            entryHandler={() => this.setState({ entrySaved: true, updateIndex: true})}
+          />
+          {performanceDataIndex}
+          <Chart />
+        </div>
       </>
     );
   }
