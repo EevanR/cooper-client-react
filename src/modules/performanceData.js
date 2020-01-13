@@ -17,7 +17,6 @@ const saveData = async (result, entryHandler) => {
       }
     );
     entryHandler();
-    alert("Entry saved!");
   } catch (err) {
     console.error(err);
     alert("Something went wrong");
@@ -35,8 +34,8 @@ const getData = async () => {
 
   const response = await axios.get("/performance_data", {
     headers: headers
-  });
-
+    }
+  );
   return response;
 };
 

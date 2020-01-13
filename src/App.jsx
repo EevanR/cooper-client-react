@@ -7,6 +7,7 @@ import { authenticate } from './modules/auth';
 import { saveUser } from './modules/userRegister';
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
 import { logout } from "./modules/logout";
+import Chart from "./components/Chart";
 
 class App extends Component {
   state = {
@@ -18,7 +19,7 @@ class App extends Component {
     authenticated: false,
     message: "",
     entrySaved: false,
-    renderIndex: false
+    renderIndex: false,
   };
 
   onChangeHandler = e => {
@@ -33,6 +34,7 @@ class App extends Component {
     );
     if (response.authenticated) {
       this.setState({ authenticated: true });
+      this.setState({ renderChart: <Chart/>})
     } else {
       this.setState({ message: response.message, renderLoginForm: false });
     }
@@ -50,7 +52,6 @@ class App extends Component {
       this.setState({message: response.message})
     }
   };
-
 
   onRegister = async e => {
     e.preventDefault();
@@ -143,6 +144,7 @@ class App extends Component {
           entryHandler={() => this.setState({ entrySaved: true, updateIndex: true})}
         />
         {performanceDataIndex}
+        <Chart />
       </>
     );
   }
