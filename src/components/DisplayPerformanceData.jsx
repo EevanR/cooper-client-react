@@ -31,8 +31,8 @@ class DisplayPerformanceData extends Component {
         <div>
           {this.state.performanceData.map(item => {
             return <div className="entry" key={item.id}>
-              <h5>Entry: # {item.id}</h5>
-              {item.data.message}
+              <h4>Entry: # {item.id}</h4>
+              <p>Date: {item.created_at}, Rank: {item.data.message}</p>
               <button id="deleteButton" >Delete Entry</button>
             </div>
           })}
