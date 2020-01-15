@@ -146,7 +146,7 @@ class App extends Component {
             entrySaved={this.state.entrySaved}
             entryHandler={() => this.setState({ entrySaved: true, updateIndex: true})}
           />
-          {performanceDataIndex}
+          <div className="performance">{performanceDataIndex}</div>
           <Chart />
         </div>
       </>
