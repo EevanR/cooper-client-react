@@ -18,13 +18,13 @@ const DisplayCooperResult = ({
     <>
       {propsPassed && (
         <>
-          <div id="dividerTopBottom">
+          <div id="">
               <p id="cooper-message">
-                {age} y/o {gender} running {distance} meters.
+                {age} year old {gender} running {distance} meters.
               </p>
               <p id="cooper-result">Result: {result}</p>
               {authenticated && !entrySaved ? (
-                <button
+                <button className="ui button"
                   id="save-result"
                   onClick={() => saveData(result, entryHandler)}
                 >

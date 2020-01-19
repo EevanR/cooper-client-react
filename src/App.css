@@ -1,6 +1,7 @@
 .chartBlock {
   display: inline-block;
   width: 100%;
+  margin-top: 10px;
 }
 
 .chart1 {
@@ -8,6 +9,7 @@
   float: left;
   text-align: center;
   color: white;
+  padding: 10px;
 }
 
 .chart2 {
@@ -15,10 +17,12 @@
   float: right;
   text-align: center;
   color: white;
+  padding: 10px;
 }
 
 .entry {
-  border: 1px solid rgb(114, 166, 226);
+  text-align: left;
+  border: 1px solid rgba(255, 235, 205, 0.329);
   margin-bottom: 10px;
   height: 60px;
   padding: 5px;
@@ -32,18 +36,18 @@
   height: 200px;
 }
 
-.fields {
-  
+.ui.form {
+  width: 90%;
 }
 
 .ui.form .field>label {
-  color: white;
-  margin-bottom: 5px;
+  color: blanchedalmond;
 }
 
-#performance {
+.performance {
   overflow: scroll;
-  max-height: 400px;
+  max-height: 350px;
+  margin-bottom: 30px;
 }
 
 
@@ -54,13 +58,13 @@
 }
 
 .input {
-  padding-top: 20px;
+  margin-top: 20px;
   width: 50%;
   float: left;
   text-align: center;
 }
 
-.results {
+.login {
   padding-top: 20px;
   width: 50%;
   float: right;
@@ -72,7 +76,8 @@
 }
 
 .cooperResult {
-  margin-top: 30%;
+  padding-top: 10px;
+  padding-bottom: 20px;
   text-align: center;
 }
 
@@ -84,7 +89,46 @@
   padding-bottom: 10px;
 }
 
+#dividerBottom {
+  border-bottom: 1px solid rgba(166, 168, 172, 0.15);
+}
+
 #divider {
-  margin-top: 10px;
+  margin-top: 20px;
   border-top: 1px solid rgba(166, 168, 172, 0.15);
+}
+
+#greeting {
+  font-size: 28px;
+  color: rgb(255, 235, 205);
+}
+
+#center {
+  text-align: center;
+}
+
+.ui.input.input {
+  margin-bottom: 15px;
+}
+
+h4, h1, h3 {
+  color: blanchedalmond;
+}
+
+.ui.vertical.animated.button {
+  width: 200px;
+}
+
+.footer {
+  left: 80px;
+  bottom: 0;
+  margin-top: 400px;
+}
+
+#register {
+  margin-top: 20px;
+}
+
+#login {
+  margin-top: 20px;
 }

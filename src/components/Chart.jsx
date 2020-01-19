@@ -49,11 +49,11 @@ class Chart extends Component {
     const { excellent, aboveAv, av, belowAv, poor } = this.state
     const data = 
       {labels: [
-        `Excellent ${excellent}: Runs`,
-        `Above average ${aboveAv}: Runs`,
-        `Average ${av}: Runs`,
-        `Below average ${belowAv}: Runs`,
-        `Poor ${poor}: Runs`
+        `Excellent: ${excellent} Runs`,
+        `Above average: ${aboveAv} Runs`,
+        `Average: ${av} Runs`,
+        `Below average: ${belowAv} Runs`,
+        `Poor: ${poor} Runs`
       ],
       datasets: [{
           label: "Your Entries!",
@@ -86,7 +86,7 @@ class Chart extends Component {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
         {
-          label: 'My First dataset',
+          label: 'Entries',
           fill: true,
           lineTension: 0.1,
           backgroundColor: 'rgba(75,192,192,0.4)',
@@ -125,14 +125,14 @@ class Chart extends Component {
     return (
         <div id="divider" className="chartBLock">
           <div className="chart1">
-            <h3>Graph 1</h3>
+            <h3>Stats</h3>
             <Doughnut  
               data = {data} 
               options = {options}
             />
           </div>
           <div className="chart2">
-            <h3>Graph 2</h3>
+            <h3>Progress</h3>
             <Line 
               data = {lineData}
               options = {lineOptions}

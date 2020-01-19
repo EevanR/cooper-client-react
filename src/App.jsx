@@ -80,7 +80,7 @@ class App extends Component {
       case !renderRegisterForm && !authenticated:
         renderRegister = (
           <>
-            <button
+            <button className="ui button"
               id="register"
               onClick={() => this.setState({ renderRegisterForm: true })}
             >
@@ -98,7 +98,7 @@ class App extends Component {
       case !renderLoginForm && !authenticated:
         renderLogin = (
           <>
-            <button
+            <button className="ui button"
               id="login"
               onClick={() => this.setState({ renderLoginForm: true })}
             >
@@ -111,8 +111,9 @@ class App extends Component {
       case authenticated:
         renderLogin = (
           <>
-            <p>Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}</p>
-            <button onClick={() => this.onLogout()}>Log out</button>
+            <p id="greeting">Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}</p>
+            <p>Check your stats below.</p>
+            <button className="ui button" onClick={() => this.onLogout()}>Log out</button>
           </>
         );
         if (this.state.renderIndex) {
@@ -122,12 +123,18 @@ class App extends Component {
                 updateIndex={this.state.updateIndex}
                 indexUpdated={() => this.setState({ updateIndex: false })}
               />
-              <button onClick={() => this.setState({ renderIndex: false })}>Hide past entries</button>
+              <button className="ui vertical animated button" onClick={() => this.setState({ renderIndex: false })}>
+              <div class="visible content">Hide past entries</div>
+              <div class="hidden content"><i aria-hidden="true" class="arrow up icon"></i></div>
+              </button>
             </>
           );
         } else {
           performanceDataIndex = (
-            <button id="show-index" onClick={() => this.setState({ renderIndex: true })}>Show past entries</button>
+            <button id="show-index" className="ui vertical animated button" onClick={() => this.setState({ renderIndex: true })}>
+              <div class="visible content">Show past entries</div>
+              <div class="hidden content"><i aria-hidden="true" class="arrow down icon"></i></div>
+            </button>
           )
         };
     }
@@ -142,35 +149,40 @@ class App extends Component {
       )
     }
     
-    
-    
     return (
       <>
         <div className="main-container">
           <h1>Run App</h1>
+          <p>The Cooper Test (aka The 12-minute run) was developed by Dr. 
+            Ken Cooper in 1968 as an easy way to measure aerobic fitness and 
+            provide an estimate of VO2 max for military personnel. The Cooper 
+            test, is still used today as a field test for determining
+            aerobic fitness. Fill in the fields below to check your aerobic level.</p>
           <div>
             <div id="divider" className="fieldsLogin">
               <div className="input"><InputFields onChangeHandler={this.onChangeHandler} /></div>
-              <div className="results">
+              <div className="login">
                 {renderLogin}
                 {renderRegister}
               </div>
             </div>
           </div>
-          <div className="cooperResult">
-              <DisplayCooperResult
-                distance={this.state.distance}
-                gender={this.state.gender}
-                age={this.state.age}
-                authenticated={this.state.authenticated}
-                entrySaved={this.state.entrySaved}
-                entryHandler={() => this.setState({ entrySaved: true, updateIndex: true})}
-              />
-              <div className="performance">
-                Login to view run history!
-                {performanceDataIndex}
-              </div>
-              {displayChart}
+          <div id="divider" className="cooperResult">
+            <DisplayCooperResult
+              distance={this.state.distance}
+              gender={this.state.gender}
+              age={this.state.age}
+              authenticated={this.state.authenticated}
+              entrySaved={this.state.entrySaved}
+              entryHandler={() => this.setState({ entrySaved: true, updateIndex: true})}
+            />
+          </div>
+          <div id="center">
+            {performanceDataIndex}
+            {displayChart}
+          </div>
+          <div className="footer">
+            <h6>Made with React 16.12.0 & Rails 2.5.1 </h6>
           </div>
         </div>
       </>
