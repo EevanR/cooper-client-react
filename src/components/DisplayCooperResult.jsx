@@ -18,25 +18,27 @@ const DisplayCooperResult = ({
     <>
       {propsPassed && (
         <>
-          <p id="cooper-message">
-            {age} y/o {gender} running {distance} meters.
-          </p>
-          <p id="cooper-result">Result: {result}</p>
-          {authenticated && !entrySaved ? (
-            <button
-              id="save-result"
-              onClick={() => saveData(result, entryHandler)}
-            >
-              Save entry
-            </button>
-          ) : (
-            false
-          )}
-          {!authenticated && !entrySaved ? (
-            <p>Login to save your entry!</p>
-          ) : (
-            false
-          )}
+          <div id="dividerTopBottom">
+              <p id="cooper-message">
+                {age} y/o {gender} running {distance} meters.
+              </p>
+              <p id="cooper-result">Result: {result}</p>
+              {authenticated && !entrySaved ? (
+                <button
+                  id="save-result"
+                  onClick={() => saveData(result, entryHandler)}
+                >
+                  Save entry
+                </button>
+              ) : (
+                false
+              )}
+              {!authenticated && !entrySaved ? (
+                <p>Login to save your entry!</p>
+              ) : (
+                false
+              )}
+          </div>
         </>
       )}
     </>

@@ -72,6 +72,7 @@ class App extends Component {
     let renderRegister;
     let renderLogin;
     let performanceDataIndex;
+    let displayChart;
     switch(true) {
       case renderRegisterForm && !authenticated:
         renderRegister = <RegisterForm submitFormHandler={this.onRegister}/>;
@@ -130,24 +131,47 @@ class App extends Component {
           )
         };
     }
+
+    if (authenticated) {
+      displayChart = (
+        <Chart />
+      )
+    } else {
+      displayChart = (
+        <h3>Login to display Charts!</h3>
+      )
+    }
+    
+    
     
     return (
       <>
         <div className="main-container">
           <h1>Run App</h1>
-          <InputFields onChangeHandler={this.onChangeHandler} />
-          {renderLogin}
-          {renderRegister}
-          <DisplayCooperResult
-            distance={this.state.distance}
-            gender={this.state.gender}
-            age={this.state.age}
-            authenticated={this.state.authenticated}
-            entrySaved={this.state.entrySaved}
-            entryHandler={() => this.setState({ entrySaved: true, updateIndex: true})}
-          />
-          <div className="performance">{performanceDataIndex}</div>
-          <Chart />
+          <div>
+            <div id="divider" className="fieldsLogin">
+              <div className="input"><InputFields onChangeHandler={this.onChangeHandler} /></div>
+              <div className="results">
+                {renderLogin}
+                {renderRegister}
+              </div>
+            </div>
+          </div>
+          <div className="cooperResult">
+              <DisplayCooperResult
+                distance={this.state.distance}
+                gender={this.state.gender}
+                age={this.state.age}
+                authenticated={this.state.authenticated}
+                entrySaved={this.state.entrySaved}
+                entryHandler={() => this.setState({ entrySaved: true, updateIndex: true})}
+              />
+              <div className="performance">
+                Login to view run history!
+                {performanceDataIndex}
+              </div>
+              {displayChart}
+          </div>
         </div>
       </>
     );

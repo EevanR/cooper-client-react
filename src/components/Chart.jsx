@@ -49,11 +49,11 @@ class Chart extends Component {
     const { excellent, aboveAv, av, belowAv, poor } = this.state
     const data = 
       {labels: [
-        `Excellent ${excellent}`,
-        `Above average ${aboveAv}`,
-        `Average ${av}`,
-        `Below average ${belowAv}`,
-        `Poor ${poor}`
+        `Excellent ${excellent}: Runs`,
+        `Above average ${aboveAv}: Runs`,
+        `Average ${av}: Runs`,
+        `Below average ${belowAv}: Runs`,
+        `Poor ${poor}: Runs`
       ],
       datasets: [{
           label: "Your Entries!",
@@ -123,23 +123,21 @@ class Chart extends Component {
     }
     
     return (
-      <div className="ui divider">
-          <div className="chartBLock">
-            <div className="chart1">
-              <h3>Graph 1</h3>
-              <Doughnut  
-                data = {data} 
-                options = {options}
-              />
-            </div>
-            <div className="chart2">
-              <h3>Graph 2</h3>
-              <Line 
-                data = {lineData}
-                options = {lineOptions}
-              />
-            </div>
-        </div>
+        <div id="divider" className="chartBLock">
+          <div className="chart1">
+            <h3>Graph 1</h3>
+            <Doughnut  
+              data = {data} 
+              options = {options}
+            />
+          </div>
+          <div className="chart2">
+            <h3>Graph 2</h3>
+            <Line 
+              data = {lineData}
+              options = {lineOptions}
+            />
+          </div>
       </div>
     )
   }

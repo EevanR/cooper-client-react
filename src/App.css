@@ -30,11 +30,10 @@
 
 .inputFields {
   height: 200px;
-  width: 45%;
 }
 
 .fields {
-  padding-top: 20px;
+  
 }
 
 .ui.form .field>label {
@@ -42,7 +41,50 @@
   margin-bottom: 5px;
 }
 
-.performance {
+#performance {
   overflow: scroll;
   max-height: 400px;
+}
+
+
+.fieldsLogin {
+  width: 100%;
+  display: inline-block;
+  color: white;
+}
+
+.input {
+  padding-top: 20px;
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+.results {
+  padding-top: 20px;
+  width: 50%;
+  float: right;
+  text-align: center;
+}
+
+#root {
+  width: 100%;
+}
+
+.cooperResult {
+  margin-top: 30%;
+  text-align: center;
+}
+
+#dividerTopBottom {
+  border-top: 1px solid rgba(166, 168, 172, 0.15);
+  border-bottom: 1px solid rgba(166, 168, 172, 0.15);
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#divider {
+  margin-top: 10px;
+  border-top: 1px solid rgba(166, 168, 172, 0.15);
 }

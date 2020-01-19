@@ -4,7 +4,6 @@ const InputFields = ({ onChangeHandler }) => {
   return (
     <>
       <div className="inputFields"> 
-        <div className="ui divider">
           <div className="fields">
             <form class="ui form">
               <div className="field">
@@ -21,7 +20,6 @@ const InputFields = ({ onChangeHandler }) => {
               </select>
             </form>
           </div>
-        </div>
       </div>
     </>
   );
