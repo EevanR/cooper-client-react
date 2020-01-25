@@ -124,16 +124,16 @@ class App extends Component {
                 indexUpdated={() => this.setState({ updateIndex: false })}
               />
               <button className="ui vertical animated button" onClick={() => this.setState({ renderIndex: false })}>
-              <div class="visible content">Hide past entries</div>
-              <div class="hidden content"><i aria-hidden="true" class="arrow up icon"></i></div>
+              <div className="visible content">Hide past entries</div>
+              <div className="hidden content"><i aria-hidden="true" class="arrow up icon"></i></div>
               </button>
             </>
           );
         } else {
           performanceDataIndex = (
             <button id="show-index" className="ui vertical animated button" onClick={() => this.setState({ renderIndex: true })}>
-              <div class="visible content">Show past entries</div>
-              <div class="hidden content"><i aria-hidden="true" class="arrow down icon"></i></div>
+              <div className="visible content">Show past entries</div>
+              <div className="hidden content"><i aria-hidden="true" class="arrow down icon"></i></div>
             </button>
           )
         };

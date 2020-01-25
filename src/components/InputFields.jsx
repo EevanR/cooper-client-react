@@ -5,7 +5,7 @@ const InputFields = ({ onChangeHandler }) => {
     <>
       <div className="inputFields"> 
           <div className="fields">
-            <form class="ui form">
+            <form className="ui form">
               <div className="field">
                 <label>Distance</label>
                 <div className="ui fluid input"><input onChange={onChangeHandler} name="distance" id="distance" placeholder="Meters"></input></div>

@@ -34,6 +34,11 @@ class Chart extends Component {
     let av = array.filter(x => x === 'Average').length
     let belowAv = array.filter(x => x === 'Below average').length
     let poor = array.filter(x => x === 'Poor').length
+    
+    let distanceArray = list.data.entries.map(item => 
+      item.data.distance)
+    let dateArray = list.data.entries.map(item => 
+      item.created_at.substring(0, item.created_at.indexOf("T")))
 
     this.setState({
       performanceData: list.data.entries,
@@ -41,12 +46,14 @@ class Chart extends Component {
       aboveAv: aboveAv,
       av: av,
       belowAv: belowAv,
-      poor: poor
+      poor: poor,
+      distance: distanceArray,
+      date: dateArray
     });
   }
 
   render() {
-    const { excellent, aboveAv, av, belowAv, poor } = this.state
+    const { excellent, aboveAv, av, belowAv, poor, distance, date } = this.state
     const data = 
       {labels: [
         `Excellent: ${excellent} Runs`,
@@ -65,10 +72,10 @@ class Chart extends Component {
             poor
           ],
           backgroundColor: [
-            'red',
-            'green',
-            'blue',
-            'orange',
+            'rgb(255,102,102)',
+            'rgb(77,255,77)',
+            'rgb(102,204,255)',
+            'rgb(255,140,25)',
             'yellow',
           ]
         }
@@ -76,14 +83,16 @@ class Chart extends Component {
 
     const options = {
       legend: {
+        position: 'left',
         labels: {
-          fontColor: "white"
+          fontColor: "white",
+          fontSize: 14
         }
       }
     }
 
     const lineData = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: date,
       datasets: [
         {
           label: 'Entries',
@@ -96,7 +105,7 @@ class Chart extends Component {
           pointBorderWidth: 1,
           pointHoverRadius: 5,
           pointRadius: 4,
-          data: [65, 59, 80, 81, 56, 55, 40]
+          data: distance
         }
       ]
     };
@@ -125,14 +134,14 @@ class Chart extends Component {
     return (
         <div id="divider" className="chartBLock">
           <div className="chart1">
-            <h3>Stats</h3>
+            <h3>Overall Stats</h3>
             <Doughnut  
               data = {data} 
               options = {options}
             />
           </div>
           <div className="chart2">
-            <h3>Progress</h3>
+            <h3>Daily Performance</h3>
             <Line 
               data = {lineData}
               options = {lineOptions}

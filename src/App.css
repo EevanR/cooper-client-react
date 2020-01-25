@@ -115,6 +115,10 @@ h4, h1, h3 {
   color: blanchedalmond;
 }
 
+h4 {
+  margin-bottom: 5px;
+}
+
 .ui.vertical.animated.button {
   width: 200px;
 }
@@ -131,4 +135,8 @@ h4, h1, h3 {
 
 #login {
   margin-top: 20px;
+}
+
+#entryDetails {
+  font-size: 15px;
 }
