@@ -125,7 +125,7 @@ class App extends Component {
               />
               <button className="ui vertical animated button" onClick={() => this.setState({ renderIndex: false })}>
               <div className="visible content">Hide past entries</div>
-              <div className="hidden content"><i aria-hidden="true" class="arrow up icon"></i></div>
+              <div className="hidden content"><i aria-hidden="true" className="arrow up icon"></i></div>
               </button>
             </>
           );
@@ -133,7 +133,7 @@ class App extends Component {
           performanceDataIndex = (
             <button id="show-index" className="ui vertical animated button" onClick={() => this.setState({ renderIndex: true })}>
               <div className="visible content">Show past entries</div>
-              <div className="hidden content"><i aria-hidden="true" class="arrow down icon"></i></div>
+              <div className="hidden content"><i aria-hidden="true" className="arrow down icon"></i></div>
             </button>
           )
         };

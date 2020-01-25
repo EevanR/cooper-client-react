@@ -36,8 +36,8 @@ class DisplayPerformanceData extends Component {
               <h4>Entry: {date}</h4>
               <p id="entryDetails"> 
                 Age: {item.data.age} yrs -
-                Rank: {item.data.message} effort -
-                Distance: {item.data.distance} m
+                Distance: {item.data.distance} m -
+                Cooper Test Grade: {item.data.message} 
               </p>
             </div>
           })}
