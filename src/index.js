@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import axios from "axios";
 
-axios.defaults.baseURL = "https://rails-cooper-api-eevan.herokuapp.com/";
+axios.defaults.baseURL = "https://rails-cooper-api-eevan.herokuapp.com/api/v1";
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
