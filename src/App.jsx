@@ -63,7 +63,6 @@ class App extends Component {
     if (response.authenticated) {
       this.setState({ authenticated: true });
     } else {
-      debugger
       this.setState({ message: response.message, renderLoginForm: false });
     }
   };
