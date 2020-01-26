@@ -23,7 +23,6 @@ const saveData = async (result, distance, age, gender, entryHandler) => {
     );
     entryHandler();
   } catch (err) {
-    console.error(err);
     alert("Something went wrong");
   }
 };

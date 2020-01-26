@@ -63,6 +63,7 @@ class App extends Component {
     if (response.authenticated) {
       this.setState({ authenticated: true });
     } else {
+      debugger
       this.setState({ message: response.message, renderLoginForm: false });
     }
   };
@@ -82,7 +83,7 @@ class App extends Component {
           <>
             <button className="ui button"
               id="register"
-              onClick={() => this.setState({ renderRegisterForm: true })}
+              onClick={() => this.setState({ renderRegisterForm: true, renderLoginForm: false })}
             >
               Register
             </button>
@@ -100,7 +101,7 @@ class App extends Component {
           <>
             <button className="ui button"
               id="login"
-              onClick={() => this.setState({ renderLoginForm: true })}
+              onClick={() => this.setState({ renderLoginForm: true, renderRegisterForm: false })}
             >
               Login
             </button>
