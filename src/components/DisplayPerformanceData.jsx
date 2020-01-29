@@ -20,6 +20,7 @@ class DisplayPerformanceData extends Component {
     let result = await getData();
     this.setState({performanceData: result.data.entries}, () => {
       this.props.indexUpdated();
+      debugger
     })
   }
 

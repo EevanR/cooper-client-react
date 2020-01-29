@@ -2,21 +2,28 @@
   "entries": [
     {
       "data": {
-        "message": "Below Average"
+        "created_at": 2020-01-01,
+        "age": 30,
+        "message": "Below Average",
+        "distance": 3000
       },
       "id": 1,
       "user_id": 1
     },
     {
       "data": {
-        "message": "Average"
+        "age": 30,
+        "message": "Average",
+        "distance": 3000
       },
       "id": 2,
       "user_id": 1
     },
     {
       "data": {
-        "message": "Above Average"
+        "age": 30,
+        "message": "Above Average",
+        "distance": 3000
       },
       "id": 3,
       "user_id": 1

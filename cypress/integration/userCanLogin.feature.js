@@ -1,7 +1,3 @@
-// Same as userCanLogin.spec.js, except here we mock out the call to the  back
-// end, and load a repsonse of our creation from fixtures folder, login.json
-// file.
-
 /// <reference types="Cypress" />
 
 describe("User can log in", () => {
@@ -13,7 +9,7 @@ describe("User can log in", () => {
   it("successfully", () => {
     cy.route({
       method: "POST",
-      url: "http://localhost:3000/api/v1/auth/sign_in",
+      url: "https://cooper-api-eevan.herokuapp.com/api/v1/auth/sign_in",
       response: "fixture:login.json",
       headers: {
         uid: "user@mail.com"
@@ -21,7 +17,7 @@ describe("User can log in", () => {
     });
     cy.get("#login").click();
     cy.get("#login-form").within(() => {
-      cy.get("#email").type("user@mail.com");
+      cy.get("#email").type("user@mail.com")
       cy.get("#password").type("password");
       cy.get('button').contains('Submit').click();
     });
@@ -31,7 +27,7 @@ describe("User can log in", () => {
   it("with invalid credentials", () => {
     cy.route({
       method: "POST",
-      url: "http://localhost:3000/api/v1/auth/sign_in",
+      url: "https://cooper-api-eevan.herokuapp.com/api/v1/auth/sign_in",
       status: "401",
       response: {
         errors: ["Invalid login credentials. Please try again."],

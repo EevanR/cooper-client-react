@@ -3,14 +3,15 @@
 describe('User attempts to view his/her performance data', () => {
   before(function() {
     cy.server();
+
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3000/api/v1/performance_data',
+      url: 'https://cooper-api-eevan.herokuapp.com/api/v1/performance_data',
       response: 'fixture:performance_data_index.json'
     })
     cy.route({
       method: 'POST',
-      url: 'http://localhost:3000/api/v1/auth/sign_in',
+      url: 'https://cooper-api-eevan.herokuapp.com/api/v1/auth/sign_in',
       response: 'fixture:login.json',
       headers: {
         "uid": "user@mail.com"
@@ -28,7 +29,7 @@ describe('User attempts to view his/her performance data', () => {
 
   it('successfully', async () => {
     cy.get('#show-index').click()
-    cy.get('#index').within(() => {
+    await cy.get('#index').within(() => {
       cy.contains('Below Average')
       cy.contains('Average')
       cy.contains('Above Average')

@@ -6,9 +6,9 @@ describe("Cooper Client calculates successfully", () => {
     cy.get("input#distance").type("1000");
     cy.get("select#gender").select("female");
     cy.get("input#age").type("23");
-    cy.get("p#cooper-message").should(
+    cy.get("h3#cooper-message").should(
       "contain",
-      "23 y/o female running 1000 meters."
+      "23 year old female running 1000 meters."
     );
     cy.get("p#cooper-result").should("contain", "Result: Poor");
   });

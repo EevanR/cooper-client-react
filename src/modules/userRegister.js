@@ -10,7 +10,7 @@ const saveUser = async (email, password) => {
     await storeAuthCredentials(response);
     return { authenticated: true };
   } catch (error) {
-    return { authenticated: false, message: error.message };
+    return {authenticated: false, message: error.response.data.errors[0]};
   }
 };
 
